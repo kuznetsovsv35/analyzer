@@ -2,6 +2,7 @@ from conan import ConanFile
 from conan.tools.cmake import CMake, CMakeToolchain, CMakeDeps
 from conan.tools.files import copy, rmdir
 from conan.tools.layout import basic_layout
+from conan.tools.cmake import cmake_layout
 import os
 
 class analyzerConan(ConanFile):
@@ -56,7 +57,7 @@ class analyzerConan(ConanFile):
         self.tool_requires("cmake/3.30.0")
     
     def layout(self):
-        basic_layout(self, src_folder=".", build_folder="build")
+        cmake_layout(self)
     
     def generate(self):
         deps = CMakeDeps(self)
